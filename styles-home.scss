@@ -1,0 +1,435 @@
+// Including general Styles for header, footer here 
+@use 'styles-base.scss';
+
+
+
+
+
+
+
+
+// Home Page Styles Controls start here 
+
+
+.mainContent {
+  grid-area: mainContent;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  grid-template-rows: 1fr .6fr;
+  grid-template-areas:
+    "designerSection mainPhotoSection coderSection"
+    "designerSection mainPhotoSection mainCTASection";
+  justify-items: center;
+  align-items: center;
+  white-space: nowrap;
+  width: 99.8vw;
+
+  // Designer texts styles control 
+
+  .designerSection {
+    grid-area: designerSection;
+    color: var(--text-color-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    animation: designerSection 2s ease;
+    padding-left: 2vw;
+
+    h1 {
+      font-size: 3vw;
+      letter-spacing: .2vw;
+    }
+
+    p {
+      font-size: 1.5vw;
+      letter-spacing: .03vw;
+      line-height: 1.5;
+      text-align: center;
+
+    }
+  }
+
+  /* animation control area for designerSection */
+
+  @keyframes designerSection {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(-100px);
+      transform: translateX(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+  }
+
+
+
+  // Main Photo styles control 
+
+  .mainPhotoSection {
+    grid-area: mainPhotoSection;
+    display: flex;
+    align-self: flex-end;
+
+    figure {
+      display: flex;
+      align-self: flex-end;
+      justify-content: center;
+      width: 100%;
+      height: 80vmin;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      animation: myPhoto 2s ease;
+    }
+
+  }
+
+  /* animation control area for mainPhotoSection */
+
+  @keyframes myPhoto {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(100px);
+      transform: translateY(100px);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+    }
+  }
+
+
+
+
+
+  // Coder text styles control 
+
+  .coderSection {
+    grid-area: coderSection;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color-2);
+    animation: coderSection 2s ease;
+    padding-right: 2vw;
+
+    h1 {
+      font-size: 3vw;
+      letter-spacing: .2vw;
+    }
+
+    p {
+      font-size: 1.5vw;
+      letter-spacing: .03vw;
+      line-height: 1.5;
+      text-align: center;
+
+    }
+  }
+
+  /* animation control area for coderSection */
+
+  @keyframes coderSection {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(100px);
+      transform: translateX(100px);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+  }
+}
+
+
+
+/* main CTA Style control starts here */
+
+.mainCTA {
+  grid-area: mainCTASection;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  animation: mainCTASection 2s ease;
+  margin-top: 2.5vw;
+  position: relative;
+  right: 1vw;
+
+
+  button {
+    color: var(--text-color-2);
+    width: 20vw;
+    height: auto;
+    font-size: 1.3vw;
+    letter-spacing: .2vw;
+    font-weight: bold;
+    padding: .75vw;
+    border-radius: 1vw;
+    // background: transparent;
+    background: var(--secondary-color);
+    border: .15vw solid var(--text-color-1);
+    overflow: hidden;
+    position: relative;
+
+
+    &:hover {
+      border: 0.15vw solid var(--tertiary-color);
+      cursor: pointer;
+    }
+
+
+    // Button shadow effect style controls starts here 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#fff), to(transparent));
+      background: linear-gradient(90deg, transparent, #fff, transparent);
+      -webkit-transition: 0.9s;
+      transition: 0.9s;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+  }
+
+  span {
+    color: var(--text-color-1);
+    font-family: 'Dancing Script', cursive;
+    // font-family: 'Freehand', cursive;
+    // font-family: 'Saira Condensed', sans-serif;
+  }
+
+  h5 {
+    color: var(--text-color-3);
+    font-size: .75vw;
+    letter-spacing: .20vw;
+    padding: .5vw;
+  }
+
+  /* animation control area for mainCTASection */
+
+  @keyframes mainCTASection {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(100px);
+      transform: translateX(100px);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+  }
+}
+
+
+
+// MOBILE LAYOUT STARTS HERE ---------------------------------------------
+
+
+// For most recent mobile devices
+
+@media all and (max-width: 1030px) and (orientation: portrait) {
+
+  .mainContent {
+    grid-area: mainContent;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .65fr .1fr 0 .35fr;
+    grid-template-areas:
+      " mainPhotoSection"
+      "designerSection"
+      "coderSection"
+      "mainCTASection";
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+
+
+    .mainPhotoSection {
+      grid-area: mainPhotoSection;
+
+
+      figure {
+        width: 75vmin;
+        height: 100%;
+      }
+    }
+
+
+    .designerSection {
+      grid-area: designerSection;
+      position: relative;
+      bottom: 5vw;
+      // display: none;
+
+
+
+      h1 {
+        font-size: 10vw;
+      }
+
+      p {
+        font-size: 5vw;
+        letter-spacing: .25vw;
+      }
+    }
+
+
+    .coderSection {
+      grid-area: coderSection;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      position: relative;
+      bottom: 5vw;
+      display: none;
+
+
+
+      h1 {
+        font-size: 10vw;
+        letter-spacing: 2.5vw;
+
+      }
+
+      p {
+        font-size: 5vw;
+        letter-spacing: .25vw;
+      }
+
+    }
+
+
+    .mainCTA {
+      grid-area: mainCTASection;
+      margin: 0;
+      justify-self: center;
+      position: relative;
+      right: 0;
+      bottom: 12vw;
+
+      button {
+        width: 70vw;
+        height: auto;
+        font-size: 5.3vw;
+        letter-spacing: .75vw;
+        padding: 1.5vw;
+        border: .5vw solid var(--text-color-1);
+        margin-top: 10vw;
+
+        border-radius: 2vw;
+
+
+      }
+
+      h5 {
+        font-size: 2.5vw;
+        letter-spacing: .75vw;
+        padding: .5vw;
+      }
+    }
+
+
+
+  }
+
+}
+
+
+// For smaller screen phones
+
+@media all and (max-height: 740px) and (orientation: portrait) {
+
+
+  .mainContent {
+    grid-area: mainContent;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .75fr .15fr 0 .35fr;
+    grid-template-areas:
+      " mainPhotoSection"
+      "designerSection"
+      "coderSection"
+      "mainCTASection";
+
+
+    .mainPhotoSection {
+
+      figure {
+        width: 65vmin;
+        height: 100%;
+      }
+    }
+
+
+    .designerSection {
+
+
+      h1 {
+        font-size: 9vw;
+      }
+
+      p {
+        font-size: 4vw;
+        letter-spacing: .25vw;
+      }
+    }
+
+
+    .coderSection {
+
+      h1 {
+        font-size: 9vw;
+        letter-spacing: 2.5vw;
+
+      }
+
+      p {
+        font-size: 4vw;
+        letter-spacing: .25vw;
+      }
+
+    }
+
+
+    .mainCTA {
+      bottom: 12vw;
+
+      button {
+        width: 60vw;
+        font-size: 4vw;
+        margin-top: 10vw;
+        border-radius: 2vw;
+
+
+      }
+
+      h5 {
+        font-size: 2vw;
+      }
+    }
+
+  }
+}
